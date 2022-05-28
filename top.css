@@ -90,6 +90,11 @@
     margin: auto;
   }
 
+  .contact img{
+    width: 80px;
+    height: auto;
+  }
+
   .contact{
     /* background-color: gray; */
     display: flex;
@@ -101,7 +106,7 @@
   }
 
   .contact a{
-    margin: 1%;
+    margin: 2%;
   }
 
   .message{
