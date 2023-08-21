@@ -1,102 +1,142 @@
-/* .title {
-    color: #101817;
-    font-size: 42pt;
-    font-family: "Kokoro", cursive;
-    padding: 20px;              
-    text-align:  center;        
-    background-color:  #ddd;    
-    height: 100px;             
-   }  */
+@charset "utf-8";
 
-  html, body {
+/*==================================================
+スライダーのためのcss
+===================================*/
+.slider {/*横幅94%で左右に余白を持たせて中央寄せ*/
+    width:94%;
+    margin:0 auto;
+}
+
+.slider img {
+    width:60vw;/*スライダー内の画像を60vwにしてレスポンシブ化*/
+    height:auto;
+}
+
+.slider .slick-slide {
+  transform: scale(0.8);/*左右の画像のサイズを80%に*/
+  transition: all .5s;/*拡大や透過のアニメーションを0.5秒で行う*/
+  opacity: 0.5;/*透過50%*/
+}
+
+.slider .slick-slide.slick-center{
+  transform: scale(1);/*中央の画像のサイズだけ等倍に*/
+  opacity: 1;/*透過なし*/
+}
+
+
+/*矢印の設定*/
+
+/*戻る、次へ矢印の位置*/
+.slick-prev, 
+.slick-next {
+    position: absolute;/*絶対配置にする*/
+    top: 42%;
+    cursor: pointer;/*マウスカーソルを指マークに*/
+    outline: none;/*クリックをしたら出てくる枠線を消す*/
+    border-top: 2px solid #666;/*矢印の色*/
+    border-right: 2px solid #666;/*矢印の色*/
+    height: 15px;
+    width: 15px;
+}
+
+.slick-prev {/*戻る矢印の位置と形状*/
+    left: -1.5%;
+    transform: rotate(-135deg);
+}
+
+.slick-next {/*次へ矢印の位置と形状*/
+    right: -1.5%;
+    transform: rotate(45deg);
+}
+
+/*ドットナビゲーションの設定*/
+
+.slick-dots {
+    text-align:center;
+  margin:20px 0 0 0;
+}
+
+.slick-dots li {
+    display:inline-block;
+  margin:0 5px;
+}
+
+.slick-dots button {
+    color: transparent;
+    outline: none;
+    width:8px;/*ドットボタンのサイズ*/
+    height:8px;/*ドットボタンのサイズ*/
+    display:block;
+    border-radius:50%;
+    background:#ccc;/*ドットボタンの色*/
+}
+
+.slick-dots .slick-active button{
+    background:#333;/*ドットボタンの現在地表示の色*/
+}
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+html ,body {
+    width: 100%;
     height: 100%;
     background-color: #fbfbfb;
-  }
+    margin: 0px;
+    padding: 0px;
+}
 
-  .top{
+.top{
     /* background-color: gray; */
-    display: flex;
-    width: auto;
-    height: 100%;
+    /* display: flex; */
+    position: relative;
+    width: 100%;
+    height: 100vh;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  } 
+} 
 
-  .title_parent{
-    width: auto;
-    height: 100%;
-  }
-
-  /* @media screen and (min-width: 481px){ 
-
-  } */
-
-  /* @media screen and (max-width: 480px){ 
-
-  } */
-  
-
-  .top_title{
+.top_title{
     font-family:'Yu Mincho', /* Windows用 */
           serif;
-    font-size: 250%;
+    font-size: 200%;
     position: absolute;
     top: 50%;
     left: 50%;
     display: inline;
     transform: translate(-50%, -50%);
     writing-mode: vertical-rl;
-  }
+}
 
-  .discography1{
-    /* background-color: gray; */
-    display: flex;
-    width: auto;
-    height: auto;
+.sliderparent{
+    position: relative;
+    width: 100%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-  }
+    margin: 50px 0 100px;
+    overflow: hidden;
+}
 
-  .discography p{
-    font-family:'Yu Mincho', /* Windows用 */
-          serif;
-    /* font-size: x-large; */
-    /* position: absolute; */
-    /* top: 50%;
-    left: 50%; */
-    /* display: inline; */
-    /* transform: translate(-50%, -50%); */
-    /* writing-mode: vertical-rl; */
-  }
-  .youknow{
-    /* margin:auto */
-    width: auto;
-    height: 400px;
-  }
-
-  .youknow img{
-    margin: auto;
-  }
-
-  .momo{
-    /* margin:auto */
-    width: auto;
-    height: 400px;
-  }
-
-  .momo img{
-    margin: auto;
-  }
-
-  .contact img{
-    width: 80px;
+.live{
+    display: flex;
+    width: 80%;
     height: auto;
-  }
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    margin: 0 auto;
+}
 
-  .contact{
-    /* background-color: gray; */
+.live img{
+    width: 100%;
+    align-items: center;
+    border-radius: 5%;
+}
+
+.contact{
     display: flex;
     width: auto;
     height: 500px;
@@ -104,60 +144,64 @@
     justify-content: center;
     flex-direction: row;
   }
-
+  
   .contact a{
     margin: 2%;
   }
 
-  .message{
-    font-family:'Yu Mincho', /* Windows用 */
-          serif;
-    display: flex;
-    width: auto;
-    height: 400px;
-    align-items: center;
-    justify-content: center;
-  }
+ul{
+  margin:0;
+  padding: 0;
+  list-style: none;
+}
 
-  .sa {
-    opacity: 0;
-    transition: all .5s ease;
-  }
-  
-  .sa.show {
-    opacity: 1;
-    transform: none;
-  }
-  
-  .sa--lr {
-    transform: translate(-100px, 0);
-  }
-  
-  .sa--rl {
-    transform: translate(100px, 0);
-  }
-  
-  .sa--up {
-    transform: translate(0, 100px);
-  }
-  
-  .sa--down {
-    transform: translate(0, -100px);
-  }
-  
-  .sa--scaleUp {
-    transform: scale(.5);
-  }
-  
-  .sa--scaleDown {
-    transform: scale(1.5);
-  }
-  
-  .sa--rotateL {
-    transform: rotate(180deg);
-  }
-  
-  .sa--rotateR {
-    transform: rotate(-180deg);
-  }
+a{
+  color: #333;
+}
 
+a:hover,
+a:active{
+  text-decoration: none;
+}
+
+.sa {
+  opacity: 0;
+  transition: all .5s ease;
+}
+
+.sa.show {
+  opacity: 1;
+  transform: none;
+}
+
+.sa--lr {
+  transform: translate(-100px, 0);
+}
+
+.sa--rl {
+  transform: translate(100px, 0);
+}
+
+.sa--up {
+  transform: translate(0, 100px);
+}
+
+.sa--down {
+  transform: translate(0, -100px);
+}
+
+.sa--scaleUp {
+  transform: scale(.5);
+}
+
+.sa--scaleDown {
+  transform: scale(1.5);
+}
+
+.sa--rotateL {
+  transform: rotate(180deg);
+}
+
+.sa--rotateR {
+  transform: rotate(-180deg);
+}

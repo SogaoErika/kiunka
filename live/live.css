@@ -1,0 +1,41 @@
+.detail {
+    font-size: small;
+}
+
+.title {
+    font-size: 15px;
+}
+
+.info {
+    font-family:'Yu Mincho', serif;
+    margin-left: 5px;
+    height: 50%;
+    border-color: black;
+}
+ 
+ .side {
+    position: fixed;
+    font-family:'Yu Mincho', serif;
+    writing-mode: vertical-rl;
+    font-size: 130%;
+    width: 15%;
+    height: 100vw;
+    vertical-align:top;
+ } 
+
+ .content {
+   background-color:#fbfbfb1a;
+   width:85%;
+   height: 100vw;
+   margin-left: 15%;
+   text-align:left;
+ }
+
+ article {
+   display:flex;/*サイドバーとメインコンテンツを横並びにする*/
+   background-color: #fbfbfb;
+ }
+
+ body {
+    background-color: #fbfbfb;
+ }
